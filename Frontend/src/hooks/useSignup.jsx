@@ -16,7 +16,6 @@ function useSignup() {
     confirmPassword,
     gender
   ) => {
-    console.log(username, fullname, password, confirmPassword, gender);
     const success = handleInputError(
       username,
       fullname,
@@ -66,19 +65,16 @@ function handleInputError(
   gender
 ) {
   if (!username || !fullname || !password || !confirmPassword || !gender) {
-    console.log("field");
     toast.error("Please fill all fields!!!");
     return false;
   }
 
   if (password !== confirmPassword) {
-    console.log("pass not match");
     toast.error("Passwords do not match!!!");
     return false;
   }
 
   if (password.length < 8) {
-    console.log("pass len");
     toast.error("Password should have at least 8 characters!!!");
     return false;
   }

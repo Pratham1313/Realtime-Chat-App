@@ -10,7 +10,7 @@ const LogoutButton = () => {
   }
   return (
     <button
-      className="ml-5 mt-5 bg-gray-700 px-3 py-2 btn "
+      className="ml-5 mt-5 bg-gray-700 px-3 py-2 btn border-2 border-[#4a4a4a] "
       onClick={handle_logout}
     >
       <div className=" flex gap-1  items-center">

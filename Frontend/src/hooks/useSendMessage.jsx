@@ -7,11 +7,8 @@ function useSendMessage() {
   const { messages, setMessages, selectedConversation } = useConversation();
 
   function sendMessage(message) {
-    console.log("reciever", selectedConversation._id);
     const token = JSON.parse(localStorage.getItem("chat-user"));
     const sender = localStorage.getItem("user");
-
-    console.log(token);
 
     axios
       .post(

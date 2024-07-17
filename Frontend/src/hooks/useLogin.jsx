@@ -10,8 +10,6 @@ function useLogin() {
   const { setAuthUser } = useAuthContext();
 
   const login = async (username, password) => {
-    console.log(username, password);
-
     try {
       const result = await axios.post("http://localhost:5000/api/auth/login", {
         username,

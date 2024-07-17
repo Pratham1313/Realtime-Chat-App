@@ -16,7 +16,6 @@ const useGetMessages = () => {
           params: { token: token },
         })
         .then((result) => {
-          console.log("Get Message");
           setMessages(result.data);
         })
         .catch((err) => {

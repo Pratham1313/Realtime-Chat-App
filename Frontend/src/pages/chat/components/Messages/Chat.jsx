@@ -16,7 +16,7 @@ function Chat({ message }) {
     ? sender_info.username
     : selectedConversation.username;
 
-  const background = fromMe ? "bg-blue-500" : "";
+  const background = fromMe ? "bg-blue-500" : "bg-gray-600";
 
   let extract_time = formatTime(message.updatedAt);
 
@@ -24,8 +24,8 @@ function Chat({ message }) {
 
   return (
     <div className={`chat ${charClassname}`}>
-      <div className="chat-image avatar">
-        <div className="w-10 rounded-full">
+      <div className="chat-image avatar ">
+        <div className="w-10 rounded-full ">
           <img alt="Tailwind CSS chat bubble component" src={Profile_photo} />
         </div>
       </div>
@@ -34,12 +34,12 @@ function Chat({ message }) {
           shakeClass ? "shake" : ""
         }`}
       >
-        <div className=" font-bold text-start text-white select-none underline">
-          {username}
+        <div className=" font-semibold text-start text-zinc-800 select-none ">
+          ~{username}
         </div>
-        <div className=" text-slate-200 min-w-48">{message.message}</div>
+        <div className=" text-white min-w-48">{message.message}</div>
       </div>
-      <div className="chat-footer opacity-50">{extract_time}</div>
+      <div className="chat-footer opacity-50 text-white">{extract_time}</div>
     </div>
   );
 }

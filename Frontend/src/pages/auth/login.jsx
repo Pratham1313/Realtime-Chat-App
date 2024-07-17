@@ -15,8 +15,8 @@ function Signup() {
   }
   return (
     <div className="text-white">
-      <div className="load-animate w-full h-[100vh] mob:h-[90vh] flex items-center xs:px-0 xs:items-end xs:pb-[180px] relative">
-        <div className="load-animate w-[380px] z-10 bg-black/70 mx-auto lg:w-[430px] rounded-md px-8 pt-16 pb-20 xs:pt-9 shadow-[B6C4B6] shadow-sm border-stone-900 text-white">
+      <div className="load-animate w-full h-[100vh] mob:h-[90vh] flex items-center xs:px-0 xs:items-end xs:pb-[180px] relative bg-black">
+        <div className="load-animate w-[380px] z-10 bg-black/70 mx-auto lg:w-[430px] rounded-md px-8 pt-16 pb-20 xs:pt-9 shadow-[B6C4B6] shadow-sm border-stone-900 text-white border-2 border-[#4a4a4a] ">
           <h1 className="text-white font-semibold text-3xl">Sign In</h1>
           <form className="mt-[40px]" action="POST" onSubmit={handleSubmit}>
             <input
@@ -44,7 +44,7 @@ function Signup() {
                 {show ? "Hide" : "Show"}
               </label>
             </div>
-            <button className="w-full h-[7vh] bg-cyan-800 rounded-sm mb-4 text-xl font-medium mt-[25px]">
+            <button className="w-full h-[7vh] bg-cyan-800 rounded-sm mb-4 text-xl font-medium mt-[25px] border-2 border-[#4a4a4a]">
               Login
             </button>
             <div className="flex justify-between mt-2">

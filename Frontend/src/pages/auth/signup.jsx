@@ -18,9 +18,9 @@ function Signup() {
     signup(username, fullname, password, confirmPassword, gender);
   }
   return (
-    <div className=" text-white">
-      <div className="load-animate w-full h-[100vh] mob:h-[90vh] flex items-center xs:px-0 xs:items-end xs:pb-[180px] relative  ">
-        <div className="w-[380px]   z-10 bg-black/70 mx-auto lg:w-[430px] rounded-md px-8 pt-16 pb-20 xs:pt-9 shadow-[B6C4B6] shadow-sm border-stone-900 text-white">
+    <div className=" text-white bg-black">
+      <div className="load-animate w-full h-[100vh] mob:h-[90vh] flex items-center xs:px-0 xs:items-end xs:pb-[180px] relative bg-black  ">
+        <div className="w-[380px]   z-10 bg-black/70 mx-auto lg:w-[430px] rounded-md px-8 pt-16 pb-20 xs:pt-9 shadow-[B6C4B6] shadow-sm border-stone-900 text-white border-2 border-[#4a4a4a]">
           <h1 className="text-white font-semibold text-3xl">Register</h1>
           <form className=" mt-[40px]" onSubmit={handleSubmit} action="POST">
             <input
