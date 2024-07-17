@@ -1,13 +1,12 @@
 import Conversation from "../model/conversation.js";
 import Message from "../model/message.js";
+import { getReceiverSocketId, io } from "../socket/socket.js";
 
 export async function sendMessage(req, res) {
   try {
     const { recieverId } = req.params;
     const { message } = req.body;
     const senderId = req.user._id;
-
-    console.log(senderId, recieverId, message);
 
     let conversation = await Conversation.findOne({
       participant: { $all: [senderId, recieverId] },
@@ -18,7 +17,6 @@ export async function sendMessage(req, res) {
         participant: [senderId, recieverId],
       });
     }
-    console.log(conversation);
 
     const newMessage = Message({
       senderId,
@@ -31,7 +29,11 @@ export async function sendMessage(req, res) {
     }
     await conversation.save();
     await newMessage.save();
-    console.log("saved");
+    const receiverSocketId = getReceiverSocketId(recieverId);
+    if (receiverSocketId) {
+      // io.to(<socket_id>).emit() used to send events to specific client
+      io.to(receiverSocketId).emit("newMessage", newMessage);
+    }
     res.status(201).json(newMessage);
   } catch (error) {
     console.log("sendMessage route - error - >", error);
@@ -49,7 +51,6 @@ export const getMessage = async (req, res) => {
     })
       .populate("messages")
       .sort({ createdAt: -1 });
-    console.log(conversation);
     if (!conversation) return res.status(200).json([]);
 
     const messages = conversation.messages;

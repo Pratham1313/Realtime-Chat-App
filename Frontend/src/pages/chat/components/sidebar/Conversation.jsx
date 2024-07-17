@@ -1,9 +1,13 @@
 import React from "react";
 import useConversation from "../../../../zustand/useConversation";
+import { useSocketContext } from "../../../../context/SocketContext";
 
 function Conversation({ conversation }) {
   const { selectedConversation, setSelectedConversation } = useConversation();
   const isSelected = selectedConversation?._id === conversation._id;
+
+  const { onlineUsers } = useSocketContext();
+  const isOnline = onlineUsers.includes(conversation._id);
 
   return (
     <div className=" ">
@@ -22,8 +26,12 @@ function Conversation({ conversation }) {
         <div className="flex flex-col flex-1">
           <div className="flex-row">
             <p className="font-bold text-gray-200">{conversation.username}</p>
-            <span className=" text-sm text-green-600 hover:text-green-300">
-              Online
+            <span
+              className={`text-sm  ${
+                isOnline ? "text-green-600" : " text-zinc-400"
+              } `}
+            >
+              {isOnline ? "Online" : "Offline"}
             </span>
           </div>
         </div>

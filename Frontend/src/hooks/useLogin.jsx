@@ -23,7 +23,7 @@ function useLogin() {
         localStorage.setItem("user", result.data._id);
         localStorage.setItem("user-info", JSON.stringify(result.data));
 
-        setAuthUser(result);
+        setAuthUser(result.data._id);
         toast.loading("Navigating to Chat page");
         toast.success("Login successful!");
         setTimeout(() => {

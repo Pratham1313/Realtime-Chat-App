@@ -4,11 +4,13 @@ import useSendMessage from "../../../../hooks/useSendMessage";
 import useGetMessages from "../../../../hooks/useGetMessage";
 import Chat from "./Chat";
 import useConversation from "../../../../zustand/useConversation";
+import useListenMessages from "../../../../hooks/useListenMessages";
 
 function Message() {
   const [message, setMessage] = useState("");
   const { sendMessage } = useSendMessage();
   const { selectedConversation } = useConversation();
+  useListenMessages();
 
   // Send message
   async function handleSubmit(e) {
@@ -24,7 +26,7 @@ function Message() {
   //load latest chat
   const messagesEndRef = useRef(null);
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    messagesEndRef.current?.scrollIntoView({ behavior: "auto" });
   }, [messages]);
 
   if (!selectedConversation) {
