@@ -11,10 +11,13 @@ function useLogin() {
 
   const login = async (username, password) => {
     try {
-      const result = await axios.post("http://localhost:5000/api/auth/login", {
-        username,
-        password,
-      });
+      const result = await axios.post(
+        "https://realtime-chat-app-l3gl.onrender.com/api/auth/login",
+        {
+          username,
+          password,
+        }
+      );
 
       if (result.status === 200) {
         localStorage.setItem("chat-user", JSON.stringify(result.data.tokenn));

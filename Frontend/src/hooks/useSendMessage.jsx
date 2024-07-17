@@ -12,7 +12,7 @@ function useSendMessage() {
 
     axios
       .post(
-        `http://localhost:5000/api/message/send/${selectedConversation._id}`,
+        `https://realtime-chat-app-l3gl.onrender.com/api/message/send/${selectedConversation._id}`,
         {
           message,
           token,

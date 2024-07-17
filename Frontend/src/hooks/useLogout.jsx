@@ -8,7 +8,7 @@ function useLogout() {
 
   function logout() {
     axios
-      .post("http://localhost:5000/api/auth/logout")
+      .post("https://realtime-chat-app-l3gl.onrender.com/api/auth/logout")
       .then((result) => {
         if (result.status == 200) {
           toast.success("Logged Out");

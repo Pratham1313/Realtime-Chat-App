@@ -10,7 +10,7 @@ const Conversations = ({ search }) => {
   const token = JSON.parse(localStorage.getItem("chat-user"));
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/user/get", {
+      .get("https://realtime-chat-app-l3gl.onrender.com/api/user/get", {
         params: { token: token },
       })
       .then((result) => {

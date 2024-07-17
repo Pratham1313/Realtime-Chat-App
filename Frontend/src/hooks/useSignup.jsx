@@ -28,13 +28,16 @@ function useSignup() {
     setLoading(true);
 
     try {
-      const result = await axios.post("http://localhost:5000/api/auth/signup", {
-        fullname,
-        username,
-        password,
-        confirmPassword,
-        gender,
-      });
+      const result = await axios.post(
+        "https://realtime-chat-app-l3gl.onrender.com/api/auth/signup",
+        {
+          fullname,
+          username,
+          password,
+          confirmPassword,
+          gender,
+        }
+      );
 
       if (result.status === 201) {
         toast.loading("Navigating to login page");

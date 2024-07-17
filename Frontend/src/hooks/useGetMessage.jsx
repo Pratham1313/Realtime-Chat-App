@@ -12,9 +12,12 @@ const useGetMessages = () => {
       const token = JSON.parse(localStorage.getItem("chat-user"));
       setLoading(true);
       axios
-        .get(`http://localhost:5000/api/message/${selectedConversation._id}`, {
-          params: { token: token },
-        })
+        .get(
+          `https://realtime-chat-app-l3gl.onrender.com/api/message/${selectedConversation._id}`,
+          {
+            params: { token: token },
+          }
+        )
         .then((result) => {
           setMessages(result.data);
         })
